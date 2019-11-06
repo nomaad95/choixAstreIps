@@ -4,31 +4,32 @@ function handleDrop(e) {
     var files = e.dataTransfer.files, f = files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
-      var data = new Uint8Array(e.target.result);
-      var workbook = XLSX.read(data, {type: 'array'});
-  
-      /* DO SOMETHING WITH workbook HERE */
-      //console.log(workbook);
-      var worksheet = workbook.Sheets.Sheet1;
-      //console.log(headers);
-      /*for (let t of workbook.Sheets.Sheet1) {
-          console.log(t);
-      }*/
+        var data = new Uint8Array(e.target.result);
+        var workbook = XLSX.read(data, {type: 'array'});
 
-      var a = "A".charCodeAt(0);
-      var z = "Z".charCodeAt(0);
-      var d = "D".charCodeAt(0);
-      
-      var line = 1;
-      var col = 'A';
+        var worksheet = workbook.Sheets.Sheet1;
 
-      console.log(worksheet['A1']);
+        var f = "F".charCodeAt(0);
+        var z = "Z".charCodeAt(0);
+        var d = "D".charCodeAt(0);
 
-      var z = 'X';
-      z++;
+        var excelSheet = new Map();
 
-      console.log("A".charCodeAt(0));
-      console.log("Z".charCodeAt(0));
+        for (var l = 1; l < 30; l++){
+            var line = new Map();
+            for (var c = f; c < z + 5; c++){
+                //console.log(String.fromCharCode(c));
+                var col;
+                if (c > z) col = "A" + String.fromCharCode(c-26);
+                else col = String.fromCharCode(c);
+                //console.log(col+l);
+                //console.log(worksheet[col+l].v);
+                line.set(col,worksheet[col+l].v)
+            }
+            excelSheet.set(l,line);
+        }
+        console.log(excelSheet);
+
     };
     reader.readAsArrayBuffer(f);
   }
