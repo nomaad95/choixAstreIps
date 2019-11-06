@@ -3,41 +3,131 @@
 	<head>
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 	</head>
 
 	<title>Choix IPS-ASTRE</title>
 
 	<body>
+		<nav class="navbar navbar-light bg-light">
+		  <span class="navbar-brand mb-0 h1">Choix IPS-ASTRE</span> année 2019-2020
+		</nav>
 
-		<header>
-			<h1>Choix IPS-ASTRE</h1>
-			<h2>année 2019-2020</h2>
-		</header>
-	
-		<div>
-			<h3>GRAPHIQUE ICI</h3>
-		</div>
-		<div>
-			<h3>FORMULAIRE</h3>
+		<div class="container-fluid">
+			<div>
+				<hr>
+				<h6 class="text-center">GRAPHIQUE ICI</h6>
+				<hr>
+			</div>
 
-			<form id="myForm">
+			<div>
+				<h6 class="text-center">FORMULAIRE</h6>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp1">
+							<div class="form-row">
+							  <div class="form-group mx-sm-2 mb-2">
+							    Linux <input type="number" class="form-control ml-3" id="linuxPoids" placeholder="20">
+							  </div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ Arduino <input type="number" class="form-control ml-3" id="arduinoPoids" placeholder="40">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ EnsimElec <input type="number" class="form-control ml-3" id="ensimelecPoids" placeholder="40">
+								</div>
+								= ASTRE
+							</div>
+						</form>
+					</li>
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp2">
+							<div class="form-row">
+								<div class="form-group mx-sm-2 mb-2">
+									Arduino
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ C
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ Prépa
+								</div>
+								!= ASTRE
+							</div>
+						</form>
+					</li>
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp3">
+							<div class="form-row">
+								<div class="form-group mx-sm-2 mb-2">
+									BL <input type="number" class="form-control ml-3" id="blPoids" placeholder="40">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ [Philo | Anglais | Français | Langues | Latin | Histoire Géo] <input type="number" class="form-control ml-3" id="matierelittPoids" placeholder="20">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ [Dessin |Lecture | Jouer Musique] <input type="number" class="form-control ml-3" id="activitelittPoids" placeholder="40">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ ![Math & Physique] <input type="number" class="form-control ml-3" id="matierescientPoids" placeholder="20">
+								</div>
+								= IPS
+							</div>
+						</form>
+					</li>
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp4">
+							<div class="form-row">
+								<div class="form-group mx-sm-2 mb-2">
+									MacOS <input type="number" class="form-control ml-3" id="blPoids" placeholder="40">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ ([Adobe, Audacity, Unity, Gimp, Paint] <input type="number" class="form-control ml-3" id="logicielcreaPoids" placeholder="60">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									|| [Insta, Pinterest, Tumblr]) <input type="number" class="form-control ml-3" id="sitecreaPoids" placeholder="60">
+								</div>
+								= IPS
+							</div>
+						</form>
+					</li>
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp5">
+							<div class="form-row">
+								<div class="form-group mx-sm-2 mb-2">
+									[HTML / JS / PHP] <input type="number" class="form-control ml-3" id="langagewebPoids" placeholder="80">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ [Raspberry Pi / Aucun] <input type="number" class="form-control ml-3" id="raspouaucunePoids" placeholder="20">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									|| [Insta, Pinterest, Tumblr]) <input type="number" class="form-control ml-3" id="sitecreaPoids" placeholder="60">
+								</div>
+								= IPS
+							</div>
+						</form>
+					</li>
+					<li class="list-group-item">
+						<form class="form-inline" id="hyp6">
+							<div class="form-row">
+								<div class="form-group mx-sm-2 mb-2">
+									SI <input type="number" class="form-control ml-3" id="siPoids" placeholder="30">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ Prépa SI <input type="number" class="form-control ml-3" id="prepasiPoids" placeholder="30">
+								</div>
+								<div class="form-group mx-sm-2 mb-2">
+									+ [Maths / Physique] <input type="number" class="form-control ml-3" id="matierescientPoids" placeholder="60">
+								</div>
+								= IPS
+							</div>
+						</form>
+					</li>
+				</ul>
 
-				<p>Linux <input type="number" value="20"/> + Arduino <input type="number" value="40"/> + Ensim Elec <input type="number" value="40"/> = ASTRE</p>
-<br/>
-				<p>Arduino + C + Prépa != ASTRE</p>
-<br/>
-				<p>BL <input type="number" value="40"/> + [Philo | Anglais | Français | Langues | Latin | Histoire Géo] <input type="number" value="40"/> +  [Dessin |Lecture| Jouer Musique] <input type="number" value="40"/> + ![Math & Physique] <input type="number" value="40"/> = IPS</p>
-<br/>
-				<p>MacOS <input type="number" value="40"/> + ([Adobe, Audacity, Unity, Gimp, Paint] <input type="number" value="60"/> || [Insta, Pinterest, Tumblr]) <input type="number" value="60"/> = IPS</p>
-<br/>
-				<p>[HTML / JS / PHP] <input type="number" value="80"/> + [Raspberry Pi / Aucun] <input type="number" value="20"/> = IPS</p>
-<br/>
-				<p>SI <input type="number" value="30"/> + Prépa SI <input type="number" value="30"/> + [Maths / Physique] <input type="number" value="40"/> = ASTRE</p>
-<br/><br/>
-
-				<input type="submit" value="Appliquer"/>
-				<input type="reset" value="Reinitialiser"/>
-			</form>
+				<div class="text-center mx-2 my-2">
+					<button class="btn btn-success" type="button" name="appliquer">Appliquer</button>
+					<button class="btn btn-info" type="button" name="reinitialiser">Reinitialiser</button>
+				</div>
 
 			<script>
 				var myForm = document.getElementById('myForm');
@@ -45,18 +135,28 @@
 				myForm.addEventListener('submit', function(e) {
 				   console.log('Appliquer changement');
 				    e.preventDefault(); // prevent open in new window
-				 	// check data range ? (or in html) 
-				 	// send data to graphique 
+						var linuxPoids = document.getElementById("linuxPoids").value;
+						console.log("linuxPoids : ", linuxPoids);
+				 	// check data range ? (or in html)
+				 	// send data to graphique
 				});
 
 				myForm.addEventListener('reset', function(e) {
 				   console.log('Reinitialiser formulaire');
-				   // get default settings 
+					 document.getElementById("linuxPoids").value = null;
+					 var linuxPoids = document.getElementById("linuxPoids").value;
+					 console.log("linuxPoids : ", linuxPoids);
+				   // get default settings
 				   // or get last settings
-				   // send data to graphique
+				   // send data to graphiquesd
 				});
 			</script>
 		</div>
+
+
+	</div>
+
+		<script type="text/javascript" src="js/bootstrap.js"></script>
 
 	</body>
 </html>
