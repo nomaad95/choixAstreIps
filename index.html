@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<title>Choix IPS-ASTRE</title>
+
+	<body>
+
+		<header>
+			<h1>Choix IPS-ASTRE</h1>
+			<h2>année 2019-2020</h2>
+		</header>
+	
+		<div>
+			<h3>GRAPHIQUE ICI</h3>
+		</div>
+		<div>
+			<h3>FORMULAIRE</h3>
+
+			<form id="myForm">
+
+				<p>Linux <input type="number" value="20"/> + Arduino <input type="number" value="40"/> + Ensim Elec <input type="number" value="40"/> = ASTRE</p>
+<br/>
+				<p>Arduino + C + Prépa != ASTRE</p>
+<br/>
+				<p>BL <input type="number" value="40"/> + [Philo | Anglais | Français | Langues | Latin | Histoire Géo] <input type="number" value="40"/> +  [Dessin |Lecture| Jouer Musique] <input type="number" value="40"/> + ![Math & Physique] <input type="number" value="40"/> = IPS</p>
+<br/>
+				<p>MacOS <input type="number" value="40"/> + ([Adobe, Audacity, Unity, Gimp, Paint] <input type="number" value="60"/> || [Insta, Pinterest, Tumblr]) <input type="number" value="60"/> = IPS</p>
+<br/>
+				<p>[HTML / JS / PHP] <input type="number" value="80"/> + [Raspberry Pi / Aucun] <input type="number" value="20"/> = IPS</p>
+<br/>
+				<p>SI <input type="number" value="30"/> + Prépa SI <input type="number" value="30"/> + [Maths / Physique] <input type="number" value="40"/> = ASTRE</p>
+<br/><br/>
+
+				<input type="submit" value="Appliquer"/>
+				<input type="reset" value="Reinitialiser"/>
+			</form>
+
+			<script>
+				var myForm = document.getElementById('myForm');
+
+				myForm.addEventListener('submit', function(e) {
+				   console.log('Appliquer changement');
+				    e.preventDefault(); // prevent open in new window
+				 	// check data range ? (or in html) 
+				 	// send data to graphique 
+				});
+
+				myForm.addEventListener('reset', function(e) {
+				   console.log('Reinitialiser formulaire');
+				   // get default settings 
+				   // or get last settings
+				   // send data to graphique
+				});
+			</script>
+		</div>
+
+	</body>
+</html>
