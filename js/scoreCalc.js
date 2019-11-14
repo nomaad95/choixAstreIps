@@ -55,6 +55,30 @@ function hypothesis3(student){
         score+= litteraireWeight;
     if(activite.includes("Dessin" )|| activite.includes("Jouer de la musique" ) || activite.includes("Lecture" ) )
         score+= activiteWeight;
+    if(matiere.includes("Maths")|| matiere.includes("Physique-Chimie"))
+        score+= mathphyWeight;
     //alert(score);
+    return score;
+}
+/**
+ * Test de la quatrième hypothèse : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS
+ * 
+ * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
+ * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
+ */
+function hypothesis4(student){
+    var score =0
+    var logiciel=student.get("logiciel");
+    var siteWeb=student.get("site web");
+    var macOSWeight=Number(document.getElementById("H4MacOS").value); 
+    var softwareWeight=Number(document.getElementById("H4Logiciel").value); 
+    var webWeight=Number(document.getElementById("H4SiteWeb").value); 
+    if(student.get("OS").match("MacOS"))
+        score+= macOSWeight;
+    if(logiciel.includes("Adobe" )|| logiciel.includes("Audacity" ) || logiciel.includes("Unity" ) ||  logiciel.includes("Gimp" ) || logiciel.includes("Paint" ) )
+        score+= softwareWeight;
+    if(siteWeb.includes("Instagram" )|| siteWeb.includes("Pinterest" ) || siteWeb.includes("Tumblr" ) )
+        score+= webWeight;
+    alert(score);
     return score;
 }
