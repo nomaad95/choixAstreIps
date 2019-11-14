@@ -79,6 +79,23 @@ function hypothesis4(student){
         score+= softwareWeight;
     if(siteWeb.includes("Instagram" )|| siteWeb.includes("Pinterest" ) || siteWeb.includes("Tumblr" ) )
         score+= webWeight;
-    alert(score);
+    //alert(score);
+    return score;
+}
+/**
+ * Test de la cinquième hypothèse : Un étudiant utilisant un langae web et n'utilisant pas d'arduino à un profil IPS
+ * 
+ * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
+ * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
+ */
+function hypothesis5(student){
+    var score =0 
+    var deviceWeight=Number(document.getElementById("H5Arduino").value); 
+    var langageWeight=Number(document.getElementById("H5Langage").value); 
+    if(student.get("device").match("Aucun") || student.get("device").match("Raspberry Pi"))
+        score+= deviceWeight;
+    if(student.get("langage").match("php")|| student.get("langage").match("javascript")||student.get("langage").match("HTML") )
+        score+= langageWeight;
+    //alert(score);
     return score;
 }

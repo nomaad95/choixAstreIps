@@ -11,9 +11,9 @@ student.set("logiciel","libreoffice, gimp et discord");
 student.set("site web","Youtube;Pinterest");
 var student2 = new Map();
 student2.set("OS","MacOS");
-student2.set("device","Arduino");
+student2.set("device","Aucun");
 student2.set("asso","ENSIM'elec");
-student2.set("langage","C");
+student2.set("langage","HTML");
 student2.set("origine","CPGE BL");
 student2.set("activite","Dessin;Bricolage;Jeux Vidéos;Lecture;Cinéma;Cuisine;Coder;Écouter de la musique;");
 student2.set("matiere","Philosophie");
@@ -57,5 +57,13 @@ student2.set("site web","Youtube;Pinterest");
         <input id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
         Poids application graphisme :
         <input id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+        <input type="submit">
+</form>
+<h1>Hypothèse 5 : Un étudiant utilisant un langae web et n'utilisant pas d'arduino à un profil IPS</h1>
+<form id="H5" onsubmit="hypothesis5(student2)">
+        Poids langage web :
+        <input id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
+        Poids Raspberry ou aucun :
+        <input id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
         <input type="submit">
 </form>
