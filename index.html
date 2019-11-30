@@ -16,34 +16,39 @@
 		<div class="container-fluid">
 			<div>
 				<hr>
-				<h6 class="text-center">GRAPHIQUE ICI</h6>
+				<h5 class="text-center">GRAPHIQUE ICI</h5>
 				<hr>
 			</div>
 
 			<div>
-				<h6 class="text-center">FORMULAIRE</h6>
+				<h5 class="text-center">FORMULAIRE</h5>
 				<ul class="list-group">
 					<li class="list-group-item">
-						<form class="form-inline" id="hyp1">
+						<span>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil ASTRE</span>
+						<form class="form-inline" id="H1" onsubmit="hypothesis1(student)">
 							<div class="form-row">
 							  <div class="form-group mx-sm-2 mb-2">
-							    Linux <input type="number" class="form-control ml-3" id="linuxPoids" placeholder="20">
+							    Linux <input class="form-control ml-3" id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
 							  </div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Arduino <input type="number" class="form-control ml-3" id="arduinoPoids" placeholder="40">
+									+ Arduino <input class="form-control ml-3" id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ EnsimElec <input type="number" class="form-control ml-3" id="ensimelecPoids" placeholder="40">
+									+ Ensim'Elec <input class="form-control ml-3" id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
 								</div>
-								= ASTRE
+								<div class="mx-sm-2 mb-2">
+									= ASTRE
+									<button class="btn btn-success" type="submit">Appliquer</button>
+								</div>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
-						<form class="form-inline" id="hyp2">
+						<span>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE</span>
+						<form class="form-inline" id="H2" onsubmit="hypothesis2(student)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									Arduino
+									Arduino <input class="form-control ml-3" id="H2Weight" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
 									+ C
@@ -51,62 +56,79 @@
 								<div class="form-group mx-sm-2 mb-2">
 									+ Prépa
 								</div>
-								!= ASTRE
+								<div class="mx-sm-2 mb-2">
+									!= ASTRE
+									<button class="btn btn-success" type="submit">Appliquer</button>
+								</div>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
-						<form class="form-inline" id="hyp3">
+						<span>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</span>
+						<form class="form-inline" id="H3" onsubmit="hypothesis3(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									BL <input type="number" class="form-control ml-3" id="blPoids" placeholder="40">
+									BL <input class="form-control ml-3" id="H3BL" type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ [Philo | Anglais | Français | Langues | Latin | Histoire Géo] <input type="number" class="form-control ml-3" id="matierelittPoids" placeholder="20">
+									+ Matières littéraires <input class="form-control ml-3" id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ [Dessin |Lecture | Jouer Musique] <input type="number" class="form-control ml-3" id="activitelittPoids" placeholder="40">
+									+ Activité artistique <input class="form-control ml-3" id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ ![Math & Physique] <input type="number" class="form-control ml-3" id="matierescientPoids" placeholder="20">
+									+ ! Math & Physique <input class="form-control ml-3" id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
 								</div>
-								= IPS
+								<div class="mx-sm-2 mb-2">
+									= IPS
+									<button class="btn btn-success" type="submit">Appliquer</button>
+								</div>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
-						<form class="form-inline" id="hyp4">
+						<span>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</span>
+						<form class="form-inline" id="H4" onsubmit="hypothesis4(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									MacOS <input type="number" class="form-control ml-3" id="blPoids" placeholder="40">
+									MacOS <input class="form-control ml-3" id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ ([Adobe, Audacity, Unity, Gimp, Paint] <input type="number" class="form-control ml-3" id="logicielcreaPoids" placeholder="60">
+									+ Logiciel créatif <input class="form-control ml-3" id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									|| [Insta, Pinterest, Tumblr]) <input type="number" class="form-control ml-3" id="sitecreaPoids" placeholder="60">
+									|| Application créative <input class="form-control ml-3" id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								= IPS
+								<div class="mx-sm-2 mb-2">
+									= IPS
+									<button class="btn btn-success" type="submit">Appliquer</button>
+								</div>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
-						<form class="form-inline" id="hyp5">
+						<span>Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS</span>
+						<form class="form-inline" id="H5" onsubmit="hypothesis5(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									[HTML / JS / PHP] <input type="number" class="form-control ml-3" id="langagewebPoids" placeholder="80">
+									Langage Web <input class="form-control ml-3" id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ [Raspberry Pi / Aucun] <input type="number" class="form-control ml-3" id="raspouaucunePoids" placeholder="20">
+									+ Raspberry Pi ou Aucun <input class="form-control ml-3" id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									|| [Insta, Pinterest, Tumblr]) <input type="number" class="form-control ml-3" id="sitecreaPoids" placeholder="60">
+									|| Application créative <input class="form-control ml-3" id="H5SiteWeb"type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								= IPS
+								<div class="mx-sm-2 mb-2">
+									= IPS
+									<button class="btn btn-success" type="submit">Appliquer</button>
+								</div>
 							</div>
 						</form>
 					</li>
+					<!--
 					<li class="list-group-item">
+						<span>Hypothèse 6 : </span>
 						<form class="form-inline" id="hyp6">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
@@ -122,41 +144,40 @@
 							</div>
 						</form>
 					</li>
+				-->
 				</ul>
 
 				<div class="text-center mx-2 my-2">
-					<button class="btn btn-success" type="button" name="appliquer">Appliquer</button>
 					<button class="btn btn-info" type="button" name="reinitialiser">Reinitialiser</button>
 				</div>
 
-			<script>
-				var myForm = document.getElementById('myForm');
-
-				myForm.addEventListener('submit', function(e) {
-				   console.log('Appliquer changement');
-				    e.preventDefault(); // prevent open in new window
-						var linuxPoids = document.getElementById("linuxPoids").value;
-						console.log("linuxPoids : ", linuxPoids);
-				 	// check data range ? (or in html)
-				 	// send data to graphique
-				});
-
-				myForm.addEventListener('reset', function(e) {
-				   console.log('Reinitialiser formulaire');
-					 document.getElementById("linuxPoids").value = null;
-					 var linuxPoids = document.getElementById("linuxPoids").value;
-					 console.log("linuxPoids : ", linuxPoids);
-				   // get default settings
-				   // or get last settings
-				   // send data to graphiquesd
-				});
-			</script>
 		</div>
-
-
 	</div>
 
 		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/scoreCalc.js"></script>
+		<script >
+			var student = new Map();
+			student.set("OS","Linux");
+			student.set("device","Arduino");
+			student.set("asso","ENSIM'elec");
+			student.set("langage","C");
+			student.set("origine","Prépa Intégrée");
+			student.set("activite","Jeux Vidéos;Coder;Écouter de la musique;");
+			student.set("matiere","Anglais;EPS;Sciences de l'Ingénieur;Informatique et Sciences du Numérique (ISN);");
+			student.set("logiciel","libreoffice, gimp et discord");
+			student.set("site web","Youtube;Pinterest");
+			var student2 = new Map();
+			student2.set("OS","MacOS");
+			student2.set("device","Aucun");
+			student2.set("asso","ENSIM'elec");
+			student2.set("langage","HTML");
+			student2.set("origine","CPGE BL");
+			student2.set("activite","Dessin;Bricolage;Jeux Vidéos;Lecture;Cinéma;Cuisine;Coder;Écouter de la musique;");
+			student2.set("matiere","Philosophie");
+			student2.set("logiciel","libreoffice, gimp et discord");
+			student2.set("site web","Youtube;Pinterest");
+		</script>
 
 	</body>
 </html>
