@@ -4,6 +4,13 @@
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+	<!--	<link type="text/css" rel="stylesheet" href="css/style.css"/> -->
+	<style media="screen">
+		.form-group .form-control{
+			width: 50%;
+		}
+	</style>
+
 	</head>
 
 	<title>Choix IPS-ASTRE</title>
@@ -25,120 +32,128 @@
 				<ul class="list-group">
 					<li class="list-group-item">
 						<span>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil ASTRE</span>
-						<form class="form-inline" id="H1" onsubmit="hypothesis1(student)">
+						<form class="form-inline flex-nowrap justify-content-between" id="H1" onsubmit="hypothesis1(student)">
 							<div class="form-row">
 							  <div class="form-group mx-sm-2 mb-2">
-							    Linux <input class="form-control ml-3" id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
+							    Linux :
+									<input class="form-control form-control-sm ml-3" id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
 							  </div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Arduino <input class="form-control ml-3" id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
+									Arduino :
+									<input class="form-control form-control-sm ml-3" id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Ensim'Elec <input class="form-control ml-3" id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
+									Ensim'Elec :
+									<input class="form-control form-control-sm ml-3" id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
 								</div>
-								<div class="mx-sm-2 mb-2">
-									= ASTRE
-									<button class="btn btn-success" type="submit">Appliquer</button>
-								</div>
+							</div>
+							<div class="mx-sm-2 mb-2">
+								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE</span>
-						<form class="form-inline" id="H2" onsubmit="hypothesis2(student)">
+						<form class="form-inline flex-nowrap justify-content-between" id="H2" onsubmit="hypothesis2(student)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									Arduino <input class="form-control ml-3" id="H2Weight" type="number" step="1" value="1" min="-5" max="5">
+									Arduino :
+									<input class="form-control form-control-sm ml-3" id="H2Weight" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ C
+									C :
+									<input class="form-control form-control-sm ml-3" id="H2WeightC" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Prépa
+									Prépa :
+									<input class="form-control form-control-sm ml-3" id="H2WeightP" type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								<div class="mx-sm-2 mb-2">
-									!= ASTRE
-									<button class="btn btn-success" type="submit">Appliquer</button>
-								</div>
+							</div>
+							<div class="mx-sm-2 mb-2">
+								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</span>
-						<form class="form-inline" id="H3" onsubmit="hypothesis3(student2)">
+						<form class="form-inline flex-nowrap justify-content-between" id="H3" onsubmit="hypothesis3(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									BL <input class="form-control ml-3" id="H3BL" type="number" step="1" value="2" min="-5" max="5">
+									BL :
+									<input class="form-control form-control-sm ml-3" id="H3BL" type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Matières littéraires <input class="form-control ml-3" id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
+									Matières littéraires :
+									<input class="form-control form-control-sm ml-3" id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Activité artistique <input class="form-control ml-3" id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
+									Activité artistique :
+									<input class="form-control form-control-sm ml-3" id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ ! Math & Physique <input class="form-control ml-3" id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
+									Math & Physique :
+									<input class="form-control form-control-sm ml-3" id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
 								</div>
-								<div class="mx-sm-2 mb-2">
-									= IPS
-									<button class="btn btn-success" type="submit">Appliquer</button>
-								</div>
+							</div>
+							<div class="mx-sm-2 mb-2">
+								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</span>
-						<form class="form-inline" id="H4" onsubmit="hypothesis4(student2)">
+						<form class="form-inline flex-nowrap justify-content-between" id="H4" onsubmit="hypothesis4(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									MacOS <input class="form-control ml-3" id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
+									MacOS :
+									<input class="form-control form-control-sm ml-3" id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Logiciel créatif <input class="form-control ml-3" id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
+									Logiciel créatif :
+									<input class="form-control form-control-sm ml-3" id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									|| Application créative <input class="form-control ml-3" id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+									Application créative :
+									<input class="form-control form-control-sm ml-3" id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								<div class="mx-sm-2 mb-2">
-									= IPS
-									<button class="btn btn-success" type="submit">Appliquer</button>
-								</div>
+							</div>
+							<div class="mx-sm-2 mb-2">
+								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS</span>
-						<form class="form-inline" id="H5" onsubmit="hypothesis5(student2)">
+						<form class="form-inline flex-nowrap justify-content-between" id="H5" onsubmit="hypothesis5(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									Langage Web <input class="form-control ml-3" id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
+									Langage Web <input class="form-control form-control-sm ml-3" id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Raspberry Pi ou Aucun <input class="form-control ml-3" id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
+									Raspberry Pi ou Aucun <input class="form-control form-control-sm ml-3" id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									|| Application créative <input class="form-control ml-3" id="H5SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+									Application créative <input class="form-control form-control-sm ml-3" id="H5SiteWeb"type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								<div class="mx-sm-2 mb-2">
-									= IPS
-									<button class="btn btn-success" type="submit">Appliquer</button>
-								</div>
+							</div>
+							<div class="mx-sm-2 mb-2">
+								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
 					</li>
 					<!--
 					<li class="list-group-item">
 						<span>Hypothèse 6 : </span>
-						<form class="form-inline" id="hyp6">
+						<form class="form-inline justify-content-between" id="hyp6">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									SI <input type="number" class="form-control ml-3" id="siPoids" placeholder="30">
+									SI <input type="number" class="form-control form-control-sm ml-3" id="siPoids" placeholder="30">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Prépa SI <input type="number" class="form-control ml-3" id="prepasiPoids" placeholder="30">
+									+ Prépa SI <input type="number" class="form-control form-control-sm ml-3" id="prepasiPoids" placeholder="30">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ [Maths / Physique] <input type="number" class="form-control ml-3" id="matierescientPoids" placeholder="60">
+									+ [Maths / Physique] <input type="number" class="form-control form-control-sm ml-3" id="matierescientPoids" placeholder="60">
 								</div>
 								= IPS
 							</div>
