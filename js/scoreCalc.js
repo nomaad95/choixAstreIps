@@ -99,3 +99,24 @@ function hypothesis5(student){
     //alert(score);
     return score;
 }
+/**
+ * Test de la sixième hypothèse : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE.
+ * 
+ * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
+ * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
+ */
+function hypothesis6(student){
+    var score =0 
+    var bacWeight=Number(document.getElementById("H6bacS").value); 
+    var prepaWeight=Number(document.getElementById("H6prepa").value); 
+    var mathphyWeight=Number(document.getElementById("H6matiere").value);
+    if(student.get("bac").match("S"))
+        score+= bacWeight;
+    if(student.get("origine").match("CPGE MP/PT/PC/ SI"))
+        score+= prepaWeight;
+    if(matiere.includes("Maths")|| matiere.includes("Physique-Chimie"))
+        score+= mathphyWeight;
+    //alert(score);
+    return score;
+}
+
