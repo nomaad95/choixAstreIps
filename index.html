@@ -39,7 +39,6 @@
 									data: [0, 10, 5, 2, 20, 30, 45]
 							}]
 					},
-
 							// Configuration options go here
 							options: {}
 						});
@@ -70,7 +69,7 @@
 								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H1range">
+						<input type="range" class="form-control-range" id="H1range" step="1" value="0" min="-5" max="5">
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE</span>
@@ -93,7 +92,7 @@
 								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H2range">
+						<input type="range" class="form-control-range" id="H2range" step="1" value="0" min="-5" max="5">
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</span>
@@ -120,7 +119,7 @@
 								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H3range">
+						<input type="range" class="form-control-range" id="H3range" step="1" value="0" min="-5" max="5">
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</span>
@@ -143,7 +142,7 @@
 								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H4range">
+						<input type="range" class="form-control-range" id="H4range" step="1" value="0" min="-5" max="5">
 					</li>
 					<li class="list-group-item">
 						<span>Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS</span>
@@ -155,37 +154,39 @@
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
 									Raspberry Pi ou Aucun :
-									<input class="form-control form-control-sm ml-3" id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
+									<input class="form-control form-control-sm ml-3" id="H5Arduino" type="number" step="1" value="2" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
 									Application créative :
-									<input class="form-control form-control-sm ml-3" id="H5SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+									<input class="form-control form-control-sm ml-3" id="H5SiteWeb" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 							</div>
 							<div class="mx-sm-2 mb-2">
 								<button class="btn btn-success" type="submit">Appliquer</button>
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H5range">
+						<input type="range" class="form-control-range" id="H5range" step="1" value="0" min="-5" max="5">
 					</li>
 
 					<li class="list-group-item">
-						<span>Hypothèse 6 : </span>
+						<span>Hypothèse 6 : ?????????????????</span>
 						<form class="form-inline flex-nowrap justify-content-between" id="H6" onsubmit="hypothesis6(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									Bac S <input type="number" class="form-control form-control-sm ml-3" id="H6bacS" placeholder="30">
+									Bac Scientifique :
+									<input class="form-control form-control-sm ml-3" id="H6bacS" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ Prépa SI <input type="number" class="form-control form-control-sm ml-3" id="H6prepa" placeholder="30">
+									Prépa Scientifique :
+									<input class="form-control form-control-sm ml-3" id="H6prepa" type="number" step="1" value="1" min="-5" max="5">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									+ [Maths / Physique] <input type="number" class="form-control form-control-sm ml-3" id="H6matiere" placeholder="60">
+									Matières Scientifiques :
+									<input class="form-control form-control-sm ml-3" id="H6matiere" type="number" step="1" value="1" min="-5" max="5">
 								</div>
-								= ASTRE
 							</div>
 						</form>
-						<input type="range" class="form-control-range" id="H6range">
+						<input type="range" class="form-control-range" id="H6range" step="1" value="0" min="-5" max="5">
 					</li>
 				</ul>
 
