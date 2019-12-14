@@ -34,4 +34,4 @@ function handleDrop(e) {
     reader.readAsArrayBuffer(f);
   }
   document.getElementById('dropZone').addEventListener('drop', handleDrop, false);
-  document.getElementById('dropZone').addEventListener('dhange', handleDrop, false);
+  document.getElementById('dropZone').addEventListener('change', handleDrop, false);

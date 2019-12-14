@@ -2,6 +2,7 @@
 <html>
 	<head>
 	  <meta charset="utf-8">
+	  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 	<!--	<link type="text/css" rel="stylesheet" href="css/style.css"/> -->
@@ -22,9 +23,27 @@
 
 		<div class="container-fluid">
 			<div>
-				<hr>
-				<h5 class="text-center">GRAPHIQUE ICI</h5>
-				<hr>
+				<canvas id="myChart"></canvas>
+				<script>
+					var ctx = document.getElementById('myChart').getContext('2d');
+					var chart = new Chart(ctx, {
+						// The type of chart we want to create
+						type: 'line',
+						// The data for our dataset
+							data: {
+							labels: ['valeurDeTest1', 'February', 'March', 'April', 'May', 'June', 'July'],
+							datasets: [{
+									label: 'Résultats',
+									backgroundColor: 'rgb(255, 99, 132)',
+									borderColor: 'rgb(255, 99, 132)',
+									data: [0, 10, 5, 2, 20, 30, 45]
+							}]
+					},
+
+							// Configuration options go here
+							options: {}
+						});
+				</script>
 			</div>
 
 			<div>
@@ -155,17 +174,15 @@
 						<form class="form-inline flex-nowrap justify-content-between" id="H6" onsubmit="hypothesis6(student2)">
 							<div class="form-row">
 								<div class="form-group mx-sm-2 mb-2">
-									Bac scientifique :
-									<input class="form-control form-control-sm ml-3" id="H6BacSI" type="number" step="1" value="3" min="-5" max="5">
+									Bac S <input type="number" class="form-control form-control-sm ml-3" id="H6bacS" placeholder="30">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
- 									Prépa SI :
-									<input class="form-control form-control-sm ml-3" id="H6PrepaSI" type="number" step="1" value="3" min="-5" max="5">
+									+ Prépa SI <input type="number" class="form-control form-control-sm ml-3" id="H6prepa" placeholder="30">
 								</div>
 								<div class="form-group mx-sm-2 mb-2">
-									Matières scientifiques :
- 									<input class="form-control form-control-sm ml-3" id="H6MatiereScientifiq" type="number" step="1" value="3" min="-5" max="5">
+									+ [Maths / Physique] <input type="number" class="form-control form-control-sm ml-3" id="H6matiere" placeholder="60">
 								</div>
+								= ASTRE
 							</div>
 						</form>
 						<input type="range" class="form-control-range" id="H6range">
