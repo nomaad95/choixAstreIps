@@ -106,16 +106,18 @@ function hypothesis5(student){
  */
 function hypothesis6(student){
     var score =0 
+    var matiere=student.get("matiere");
     var bacWeight=Number(document.getElementById("H6bacS").value); 
     var prepaWeight=Number(document.getElementById("H6prepa").value); 
     var mathphyWeight=Number(document.getElementById("H6matiere").value);
+    
     if(student.get("bac").match("S"))
         score+= bacWeight;
     if(student.get("origine").match("CPGE MP/PT/PC/ SI"))
         score+= prepaWeight;
     if(matiere.includes("Maths")|| matiere.includes("Physique-Chimie"))
         score+= mathphyWeight;
-    //alert(score);
+    alert(score);
     return score;
 }
 /**
@@ -132,9 +134,12 @@ function hypothesisGlobal(student){
     var h4Weight=Number(document.getElementById("H4").value); 
     var h5Weight=Number(document.getElementById("H5").value);
     var h6Weight=Number(document.getElementById("H6").value);
-    score= (hypothesis1*h1Weight-hypothesis2*h2Weight+hypothesis3*h3Weight+hypothesis4*h4Weight+hypothesis5*h5Weight+hypothesis6*h6Weight)/5;
+    score= hypothesis1(student)*h1Weight-hypothesis2(student)*h2Weight+hypothesis3(student)*h3Weight+hypothesis4(student)*h4Weight+hypothesis5(student)*h5Weight+hypothesis6(student)*h6Weight;
+    //alert (score);
     return score;
 }
+
+/////IN PROGRESS
 
 /**
  * Recupération des informations

@@ -1,6 +1,7 @@
 <script >
 var student = new Map();
 student.set("OS","Linux");
+student.set("bac","S");
 student.set("device","Arduino");
 student.set("asso","ENSIM'elec");
 student.set("langage","C");
@@ -20,50 +21,64 @@ student2.set("matiere","Philosophie");
 student2.set("logiciel","libreoffice, gimp et discord");
 student2.set("site web","Youtube;Pinterest");
 </script>
-
+<input type="file" accept=".xlsx" id="dropZone" style="background-color: lightblue; width: 150ch; height: 80vh;"></div>
+<script src="js/libs/xlsx.full.min.js"></script>
+<script src="js/excelOpener.js"></script>
 <script type="text/javascript" src="js/scoreCalc.js"></script>
-<h1>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre</h1>
-<form id="H1" onsubmit="hypothesis1(student)">
-    Poids Linux :
-    <input id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
-    Poids Arduino :
-    <input id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
-    Poids Ensim'Elec :
-    <input id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
-    <input type="submit">
-</form>
-<h1>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'arduino mais venant de prépa n'a pas un profil astre</h1>
-<form id="H2" onsubmit="hypothesis2(student)">
-    <input id="H2Weight"type="number" step="1" value="1" min="-5" max="5">
-    <input type="submit">
-</form>
-<h1>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</h1>
-<form id="H3" onsubmit="hypothesis3(student2)">
-        Poids BL :
-        <input id="H3BL" type="number" step="1" value="2" min="-5" max="5">
-        Poids Matières littéraires :
-        <input id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
-        Poids Activité:
-        <input id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
-        Poids Math/physique:
-        <input id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
-        <input type="submit">
-</form>
-<h1>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</h1>
-<form id="H4" onsubmit="hypothesis4(student2)">
-        Poids MacOS :
-        <input id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
-        Poids logiciel graphisme :
-        <input id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
-        Poids application graphisme :
-        <input id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
-        <input type="submit">
-</form>
-<h1>Hypothèse 5 : Un étudiant utilisant un langae web et n'utilisant pas d'arduino à un profil IPS</h1>
-<form id="H5" onsubmit="hypothesis5(student2)">
-        Poids langage web :
-        <input id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
-        Poids Raspberry ou aucun :
-        <input id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
+
+<form id onsubmit="hypothesisGlobal(student)">
+        <h1>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre</h1>
+        Poids de l'hypothèse
+        <input id="H1" type="number" step="1" value="1" min="0" max="5">
+        Poids Linux :
+        <input id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
+        Poids Arduino :
+        <input id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
+        Poids Ensim'Elec :
+        <input id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
+       
+        <h1>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'arduino mais venant de prépa n'a pas un profil astre</h1>
+        Poids de l'hypothèse
+        <input id="H2" type="number" step="1" value="1" min="0" max="5">
+        Coefficient à appliquer 
+        <input id="H2Weight"type="number" step="1" value="1" min="-5" max="5">
+
+        <h1>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</h1>
+        Poids de l'hypothèse
+        <input id="H3" type="number" step="1" value="1" min="0" max="5">
+                Poids BL :
+                <input id="H3BL" type="number" step="1" value="2" min="-5" max="5">
+                Poids Matières littéraires :
+                <input id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
+                Poids Activité:
+                <input id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
+                Poids Math/physique:
+                <input id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
+        <h1>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</h1>
+        Poids de l'hypothèse
+        <input id="H4" type="number" step="1" value="1" min="0" max="5">
+                Poids MacOS :
+                <input id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
+                Poids logiciel graphisme :
+                <input id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
+                Poids application graphisme :
+                <input id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+        <h1>Hypothèse 5 : Un étudiant utilisant un langae web et n'utilisant pas d'arduino à un profil IPS</h1>
+        Poids de l'hypothèse
+        <input id="H5" type="number" step="1" value="1" min="0" max="5">
+                Poids langage web :
+                <input id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
+                Poids Raspberry ou aucun :
+                <input id="H5Arduino"type="number" step="1" value="2" min="-5" max="5">
+        <h1>Hypothèse 6 : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE.</h1>
+        Poids de l'hypothèse
+        <input id="H6" type="number" step="1" value="1" min="0" max="5">
+                Poids Bac S :
+                <input id="H6bacS" type="number" step="1" value="3" min="-5" max="5">
+                Poids prepa :
+                <input id="H6prepa"type="number" step="1" value="2" min="-5" max="5">
+                Poids matiere:
+                <input id="H6matiere"type="number" step="1" value="2" min="-5" max="5">
+</br>
         <input type="submit">
 </form>
