@@ -36,11 +36,20 @@
 									label: 'Résultats',
 									backgroundColor: 'rgb(255, 99, 132)',
 									borderColor: 'rgb(255, 99, 132)',
-									data: [0, 10, 5, 2, 20, 30, 45]
+									data: [5, 10, 5, 2, 20, 30, 45]
 							}]
 					},
 							// Configuration options go here
-							options: {}
+							options: {
+								scales: {
+									yAxes: [{
+										ticks : {
+											beginAtZero: true
+
+										}
+									}]
+								}
+							}
 						});
 				</script>
 			</div>
