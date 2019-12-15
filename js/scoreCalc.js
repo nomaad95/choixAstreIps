@@ -1,4 +1,3 @@
-
 /**
  * Test de la première hypothèse : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre
  * 
@@ -119,4 +118,37 @@ function hypothesis6(student){
     //alert(score);
     return score;
 }
+/**
+ * Calcul score global
+ * 
+ * @param {Map} student
+ * @returns Le score de l'étudiant entre -5 (profil astre) et 5 profil IPS
+ */
+function hypothesisGlobal(student){
+    var score =0 
+    var h1Weight=Number(document.getElementById("H1").value); 
+    var h2Weight=Number(document.getElementById("H2").value); 
+    var h3Weight=Number(document.getElementById("H3").value);
+    var h4Weight=Number(document.getElementById("H4").value); 
+    var h5Weight=Number(document.getElementById("H5").value);
+    var h6Weight=Number(document.getElementById("H6").value);
+    score= (hypothesis1*h1Weight-hypothesis2*h2Weight+hypothesis3*h3Weight+hypothesis4*h4Weight+hypothesis5*h5Weight+hypothesis6*h6Weight)/5;
+    return score;
+}
 
+/**
+ * Recupération des informations
+ * 
+ * @param {Map} result Un dictionnaire contenant les résultats aux questionnaires
+ * @returns {Array[number]}  Le score obtenu pour chaque étudiant entre -5 (profil astre) et 5 profil IPS
+ */
+function analyse(result){
+    var label =result.get("0");
+    alert (result);
+    result.delete("0");
+    alert(result);
+    var analysis;
+    result.forEach((key,value)=>analysis.add(hypothesisGlobal(value)))
+    alert(analysis);
+    return analysis;
+}
