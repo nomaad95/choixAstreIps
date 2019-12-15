@@ -1,32 +1,6 @@
-<script >
-var student = new Map();
-student.set("OS","Linux");
-student.set("bac","S");
-student.set("device","Arduino");
-student.set("asso","ENSIM'elec");
-student.set("langage","C");
-student.set("origine","Prépa Intégrée");
-student.set("activite","Jeux Vidéos;Coder;Écouter de la musique;");
-student.set("matiere","Anglais;EPS;Sciences de l'Ingénieur;Informatique et Sciences du Numérique (ISN);");
-student.set("logiciel","libreoffice, gimp et discord");
-student.set("site web","Youtube;Pinterest");
-var student2 = new Map();
-student2.set("OS","MacOS");
-student2.set("device","Aucun");
-student2.set("asso","ENSIM'elec");
-student2.set("langage","HTML");
-student2.set("origine","CPGE BL");
-student2.set("activite","Dessin;Bricolage;Jeux Vidéos;Lecture;Cinéma;Cuisine;Coder;Écouter de la musique;");
-student2.set("matiere","Philosophie");
-student2.set("logiciel","libreoffice, gimp et discord");
-student2.set("site web","Youtube;Pinterest");
-</script>
 <input type="file" accept=".xlsx" id="dropZone" style="background-color: lightblue; width: 150ch; height: 80vh;"></div>
-<script src="js/libs/xlsx.full.min.js"></script>
-<script src="js/excelOpener.js"></script>
-<script type="text/javascript" src="js/scoreCalc.js"></script>
-
-<form id onsubmit="hypothesisGlobal(student)">
+<button onclick="transcript(student,label)">Transcription</button>
+<form>
         <h1>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre</h1>
         Poids de l'hypothèse
         <input id="H1" type="number" step="1" value="1" min="0" max="5">
@@ -80,5 +54,65 @@ student2.set("site web","Youtube;Pinterest");
                 Poids matiere:
                 <input id="H6matiere"type="number" step="1" value="2" min="-5" max="5">
 </br>
-        <input type="submit">
+        <button onclick="analysis(studentList2)">Calcul</button>
 </form>
+<script type="text/javascript" src="js/scoreCalc.js"></script>
+<script src="js/libs/xlsx.full.min.js"></script>
+<script src="js/excelOpener.js"></script>
+<script >
+        var student = new Map();
+        student.set("Quel OS préfères-tu ?","Linux");
+        student.set("Quel bac possèdes-tu ?","S");
+        student.set("Raspberry Pi ou Arduino ?","Arduino");
+        student.set("Quelles associations t'intéressent ?","ENSIM'elec");
+        student.set("Quel est le premier langage de programmation que tu as appris en dehors des cours ?","C");
+        student.set("Quelle est ta formation précédant l'ENSIM ?","Prépa Intégrée");
+        student.set("Quelles sont tes activités préférées ?","Jeux Vidéos;Coder;Écouter de la musique;");
+        student.set("Quelles étaient tes matières préférées au lycée ?","Anglais;EPS;Sciences de l'Ingénieur;Informatique et Sciences du Numérique (ISN);");
+        student.set("Donne trois logiciels à installer sur ton PC ?","libreoffice, gimp et discord");
+        student.set("Quels sites fréquentes-tu régulièrement ?","Youtube;Pinterest");
+        
+        var student2 = new Map();
+        student2.set("N","Linux");
+        student2.set("F","i173199");
+        student2.set("G","S");
+        student2.set("P","Arduino");
+        student2.set("S","ENSIM'elec");
+        student2.set("Q","Java");
+        student2.set("I","IUT");
+        student2.set("V","Jeux Vidéos;Coder;Écouter de la musique;");
+        student2.set("H","Maths");
+        student2.set("O","Chrome, Discord, Spotify");
+        student2.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
+        
+        var student3 = new Map();
+        student3.set("N","Linux");
+        student3.set("F","e199632");
+        student3.set("G","S");
+        student3.set("P","Arduino");
+        student3.set("S","ENSIM'elec");
+        student3.set("Q","Java");
+        student3.set("I","CPGE BL");
+        student3.set("V","Jeux Vidéos;Coder;Écouter de la musique;");
+        student3.set("H","Maths");
+        student3.set("O","Chrome, Discord, Spotify");
+        student3.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
+        
+        var label = new Map();
+        label.set("N","Quel OS préfères-tu ?");
+        label.set("F","Quel est ton numéro étudiant ?");
+        label.set("G","Quel bac possèdes-tu ?");
+        label.set("P","Raspberry Pi ou Arduino ?");
+        label.set("S","Quelles associations t'intéressent ?");
+        label.set("Q","Quel est le premier langage de programmation que tu as appris en dehors des cours ?");
+        label.set("I","Quelle est ta formation précédant l'ENSIM ?");
+        label.set("V","Quelles sont tes activités préférées ?");
+        label.set("H","Quelles étaient tes matières préférées au lycée ?");
+        label.set("O","Donne trois logiciels à installer sur ton PC ?");
+        label.set("W","Quels sites fréquentes-tu régulièrement ?");
+        
+        //var studentList= excelSheet;
+        
+        var studentList2 = new Map();
+        studentList2.set("0",label).set("1",student2).set("2",student3);
+        </script>

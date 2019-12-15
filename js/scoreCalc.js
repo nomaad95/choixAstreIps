@@ -9,13 +9,13 @@ function hypothesis1(student){
     var linuxWeight=Number(document.getElementById("H1Linux").value); 
     var arduinoWeight=Number(document.getElementById("H1Arduino").value); 
     var elecWeight=Number(document.getElementById("H1Elec").value); 
-    if(student.get("OS").match("Linux"))
+    if(student.get("Quel OS préfères-tu ?").match("Linux"))
         score+= linuxWeight;
-    if(student.get("device").match("Arduino"))
+    if(student.get("Raspberry Pi ou Arduino ?").match("Arduino"))
         score+= arduinoWeight;
-    if(student.get("asso").match("ENSIM'elec"))
+    if(student.get("Quelles associations t'intéressent ?").match("ENSIM'elec"))
         score+= elecWeight;
-    //alert(score);
+        //alert(score);
     return score;
 }
 
@@ -28,9 +28,9 @@ function hypothesis1(student){
 function hypothesis2(student){
     var score =0
     var h2Weight=Number(document.getElementById("H2Weight").value); 
-    if(student.get("device").match("Arduino") && student.get("langage").match("C")&& student.get("origine").match("Prépa Intégrée"));
+    if(student.get("Raspberry Pi ou Arduino ?").match("Arduino") && student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("C")&& student.get("Quelle est ta formation précédant l'ENSIM ?").match("Prépa Intégrée"));
         score+= h2Weight;
-    //alert(score);
+        //alert(score);
     return score;
 }
 
@@ -43,12 +43,12 @@ function hypothesis2(student){
 function hypothesis3(student){
     var score =0
     var blWeight=Number(document.getElementById("H3BL").value); 
-    var matiere=student.get("matiere");
-    var activite=student.get("activite");
+    var matiere=student.get("Quelles étaient tes matières préférées au lycée ?");
+    var activite=student.get("Quelles sont tes activités préférées ?");
     var litteraireWeight=Number(document.getElementById("H3Litteraire").value); 
     var activiteWeight=Number(document.getElementById("H3Activite").value); 
     var mathphyWeight=Number(document.getElementById("H3MathPhy").value); 
-    if(student.get("origine").match("CPGE BL"))
+    if(student.get("Quelle est ta formation précédant l'ENSIM ?").match("CPGE BL"))
         score+= blWeight;
     if(matiere.includes("Philosophie" )|| matiere.includes("Anglais" ) || matiere.includes("Français" ) || matiere.includes("Allemand" )|| matiere.includes("latin" ) || matiere.includes("Histoire-Géographie" ) )
         score+= litteraireWeight;
@@ -56,7 +56,7 @@ function hypothesis3(student){
         score+= activiteWeight;
     if(matiere.includes("Maths")|| matiere.includes("Physique-Chimie"))
         score+= mathphyWeight;
-    //alert(score);
+        //alert(score);
     return score;
 }
 /**
@@ -67,18 +67,17 @@ function hypothesis3(student){
  */
 function hypothesis4(student){
     var score =0
-    var logiciel=student.get("logiciel");
-    var siteWeb=student.get("site web");
+    var logiciel=student.get("Quel bac possèdes-tu ?");
+    var siteWeb=student.get("Quels sites fréquentes-tu régulièrement ?");
     var macOSWeight=Number(document.getElementById("H4MacOS").value); 
     var softwareWeight=Number(document.getElementById("H4Logiciel").value); 
     var webWeight=Number(document.getElementById("H4SiteWeb").value); 
-    if(student.get("OS").match("MacOS"))
+    if(student.get("Quel OS préfères-tu ?").match("MacOS"))
         score+= macOSWeight;
     if(logiciel.includes("Adobe" )|| logiciel.includes("Audacity" ) || logiciel.includes("Unity" ) ||  logiciel.includes("Gimp" ) || logiciel.includes("Paint" ) )
         score+= softwareWeight;
     if(siteWeb.includes("Instagram" )|| siteWeb.includes("Pinterest" ) || siteWeb.includes("Tumblr" ) )
         score+= webWeight;
-    //alert(score);
     return score;
 }
 /**
@@ -91,11 +90,10 @@ function hypothesis5(student){
     var score =0 
     var deviceWeight=Number(document.getElementById("H5Arduino").value); 
     var langageWeight=Number(document.getElementById("H5Langage").value); 
-    if(student.get("device").match("Aucun") || student.get("device").match("Raspberry Pi"))
+    if(student.get("Raspberry Pi ou Arduino ?").match("Aucun") || student.get("Raspberry Pi ou Arduino ?").match("Raspberry Pi"))
         score+= deviceWeight;
-    if(student.get("langage").match("php")|| student.get("langage").match("javascript")||student.get("langage").match("HTML") )
+    if(student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("php")|| student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("javascript")||student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("HTML") )
         score+= langageWeight;
-    //alert(score);
     return score;
 }
 /**
@@ -106,18 +104,17 @@ function hypothesis5(student){
  */
 function hypothesis6(student){
     var score =0 
-    var matiere=student.get("matiere");
+    var matiere=student.get("Quelles étaient tes matières préférées au lycée ?");
     var bacWeight=Number(document.getElementById("H6bacS").value); 
     var prepaWeight=Number(document.getElementById("H6prepa").value); 
     var mathphyWeight=Number(document.getElementById("H6matiere").value);
     
-    if(student.get("bac").match("S"))
+    if(student.get("Quel bac possèdes-tu ?").match("S"))
         score+= bacWeight;
-    if(student.get("origine").match("CPGE MP/PT/PC/ SI"))
+    if(student.get("Quelle est ta formation précédant l'ENSIM ?").match("CPGE MP/PT/PC/ SI"))
         score+= prepaWeight;
     if(matiere.includes("Maths")|| matiere.includes("Physique-Chimie"))
         score+= mathphyWeight;
-    alert(score);
     return score;
 }
 /**
@@ -135,25 +132,38 @@ function hypothesisGlobal(student){
     var h5Weight=Number(document.getElementById("H5").value);
     var h6Weight=Number(document.getElementById("H6").value);
     score= hypothesis1(student)*h1Weight-hypothesis2(student)*h2Weight+hypothesis3(student)*h3Weight+hypothesis4(student)*h4Weight+hypothesis5(student)*h5Weight+hypothesis6(student)*h6Weight;
-    //alert (score);
+    //alert(score);
     return score;
 }
-
-/////IN PROGRESS
+/**
+ * Transcription des données d'un étudiant
+ * 
+ * @param {Map} student 
+ * @param {Map} label
+ * @returns {Map}
+ */
+function transcript(student,label){
+    //console.log(student);
+    //console.log(label);
+    var result = new Map;
+    student.forEach( (answer,column)=> result.set(label.get(column),answer));
+    //console.log(result);
+    return result;
+}
 
 /**
- * Recupération des informations
+ * Analyse des résultats du questionnaires
  * 
- * @param {Map} result Un dictionnaire contenant les résultats aux questionnaires
- * @returns {Array[number]}  Le score obtenu pour chaque étudiant entre -5 (profil astre) et 5 profil IPS
+ * @param {Map} students Un dictionnaire contenant les résultats aux questionnaires
+ * @returns {Map} Le score obtenu pour chaque étudiant entre -5 (profil astre) et 5 profil IPS
  */
-function analyse(result){
-    var label =result.get("0");
-    alert (result);
-    result.delete("0");
-    alert(result);
-    var analysis;
-    result.forEach((key,value)=>analysis.add(hypothesisGlobal(value)))
-    alert(analysis);
-    return analysis;
+function analysis(students){
+    var label =students.get("0");
+    students.delete("0");
+    var result = new Map ();
+    students.forEach((student,key)=>
+        result.set(transcript(student,label).get("Quel est ton numéro étudiant ?"),hypothesisGlobal(transcript(student,label)))
+    )
+    console.log(result);
+    return result;
 }
