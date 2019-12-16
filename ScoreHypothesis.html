@@ -10,11 +10,11 @@
         <input id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
         Poids Ensim'Elec :
         <input id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
-       
+
         <h1>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'arduino mais venant de prépa n'a pas un profil astre</h1>
         Poids de l'hypothèse
         <input id="H2" type="number" step="1" value="1" min="0" max="5">
-        Coefficient à appliquer 
+        Coefficient à appliquer
         <input id="H2Weight"type="number" step="1" value="1" min="-5" max="5">
 
         <h1>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</h1>
@@ -53,7 +53,7 @@
                 <input id="H6prepa"type="number" step="1" value="2" min="-5" max="5">
                 Poids matiere:
                 <input id="H6matiere"type="number" step="1" value="2" min="-5" max="5">
-</br>
+<br>
         <button onclick="analysis(studentList2)">Calcul</button>
 </form>
 <script type="text/javascript" src="js/scoreCalc.js"></script>
@@ -71,7 +71,7 @@
         student.set("Quelles étaient tes matières préférées au lycée ?","Anglais;EPS;Sciences de l'Ingénieur;Informatique et Sciences du Numérique (ISN);");
         student.set("Donne trois logiciels à installer sur ton PC ?","libreoffice, gimp et discord");
         student.set("Quels sites fréquentes-tu régulièrement ?","Youtube;Pinterest");
-        
+
         var student2 = new Map();
         student2.set("N","Linux");
         student2.set("F","i173199");
@@ -84,7 +84,7 @@
         student2.set("H","Maths");
         student2.set("O","Chrome, Discord, Spotify");
         student2.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
-        
+
         var student3 = new Map();
         student3.set("N","Linux");
         student3.set("F","e199632");
@@ -97,7 +97,7 @@
         student3.set("H","Maths");
         student3.set("O","Chrome, Discord, Spotify");
         student3.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
-        
+
         var label = new Map();
         label.set("N","Quel OS préfères-tu ?");
         label.set("F","Quel est ton numéro étudiant ?");
@@ -110,9 +110,9 @@
         label.set("H","Quelles étaient tes matières préférées au lycée ?");
         label.set("O","Donne trois logiciels à installer sur ton PC ?");
         label.set("W","Quels sites fréquentes-tu régulièrement ?");
-        
+
         //var studentList= excelSheet;
-        
+
         var studentList2 = new Map();
         studentList2.set("0",label).set("1",student2).set("2",student3);
         </script>

@@ -1,14 +1,14 @@
 /**
  * Test de la première hypothèse : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesis1(student){
     var score =0
-    var linuxWeight=Number(document.getElementById("H1Linux").value); 
-    var arduinoWeight=Number(document.getElementById("H1Arduino").value); 
-    var elecWeight=Number(document.getElementById("H1Elec").value); 
+    var linuxWeight=Number(document.getElementById("H1Linux").value);
+    var arduinoWeight=Number(document.getElementById("H1Arduino").value);
+    var elecWeight=Number(document.getElementById("H1Elec").value);
     if(student.get("Quel OS préfères-tu ?").match("Linux"))
         score+= linuxWeight;
     if(student.get("Raspberry Pi ou Arduino ?").match("Arduino"))
@@ -21,13 +21,13 @@ function hypothesis1(student){
 
 /**
  * Test de la deuxième hypothèse : Un étudiant ayant déjà fait du C et de l'arduino mais venant de prépa n'a pas un profil astre
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesis2(student){
     var score =0
-    var h2Weight=Number(document.getElementById("H2Weight").value); 
+    var h2Weight=Number(document.getElementById("H2Weight").value);
     if(student.get("Raspberry Pi ou Arduino ?").match("Arduino") && student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("C")&& student.get("Quelle est ta formation précédant l'ENSIM ?").match("Prépa Intégrée"));
         score+= h2Weight;
         //alert(score);
@@ -36,18 +36,18 @@ function hypothesis2(student){
 
 /**
  * Test de la troisième hypothèse : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesis3(student){
     var score =0
-    var blWeight=Number(document.getElementById("H3BL").value); 
+    var blWeight=Number(document.getElementById("H3BL").value);
     var matiere=student.get("Quelles étaient tes matières préférées au lycée ?");
     var activite=student.get("Quelles sont tes activités préférées ?");
-    var litteraireWeight=Number(document.getElementById("H3Litteraire").value); 
-    var activiteWeight=Number(document.getElementById("H3Activite").value); 
-    var mathphyWeight=Number(document.getElementById("H3MathPhy").value); 
+    var litteraireWeight=Number(document.getElementById("H3Litteraire").value);
+    var activiteWeight=Number(document.getElementById("H3Activite").value);
+    var mathphyWeight=Number(document.getElementById("H3MathPhy").value);
     if(student.get("Quelle est ta formation précédant l'ENSIM ?").match("CPGE BL"))
         score+= blWeight;
     if(matiere.includes("Philosophie" )|| matiere.includes("Anglais" ) || matiere.includes("Français" ) || matiere.includes("Allemand" )|| matiere.includes("latin" ) || matiere.includes("Histoire-Géographie" ) )
@@ -61,7 +61,7 @@ function hypothesis3(student){
 }
 /**
  * Test de la quatrième hypothèse : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
@@ -69,9 +69,9 @@ function hypothesis4(student){
     var score =0
     var logiciel=student.get("Quel bac possèdes-tu ?");
     var siteWeb=student.get("Quels sites fréquentes-tu régulièrement ?");
-    var macOSWeight=Number(document.getElementById("H4MacOS").value); 
-    var softwareWeight=Number(document.getElementById("H4Logiciel").value); 
-    var webWeight=Number(document.getElementById("H4SiteWeb").value); 
+    var macOSWeight=Number(document.getElementById("H4MacOS").value);
+    var softwareWeight=Number(document.getElementById("H4Logiciel").value);
+    var webWeight=Number(document.getElementById("H4SiteWeb").value);
     if(student.get("Quel OS préfères-tu ?").match("MacOS"))
         score+= macOSWeight;
     if(logiciel.includes("Adobe" )|| logiciel.includes("Audacity" ) || logiciel.includes("Unity" ) ||  logiciel.includes("Gimp" ) || logiciel.includes("Paint" ) )
@@ -82,14 +82,14 @@ function hypothesis4(student){
 }
 /**
  * Test de la cinquième hypothèse : Un étudiant utilisant un langae web et n'utilisant pas d'arduino à un profil IPS
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesis5(student){
-    var score =0 
-    var deviceWeight=Number(document.getElementById("H5Arduino").value); 
-    var langageWeight=Number(document.getElementById("H5Langage").value); 
+    var score =0
+    var deviceWeight=Number(document.getElementById("H5Arduino").value);
+    var langageWeight=Number(document.getElementById("H5Langage").value);
     if(student.get("Raspberry Pi ou Arduino ?").match("Aucun") || student.get("Raspberry Pi ou Arduino ?").match("Raspberry Pi"))
         score+= deviceWeight;
     if(student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("php")|| student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("javascript")||student.get("Quel est le premier langage de programmation que tu as appris en dehors des cours ?").match("HTML") )
@@ -98,17 +98,17 @@ function hypothesis5(student){
 }
 /**
  * Test de la sixième hypothèse : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE.
- * 
+ *
  * @param {Map} student Un dictionnaire contenant les valeurs associées à l'étudiant
  * @returns {number} Le score obtenu par l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesis6(student){
-    var score =0 
+    var score =0
     var matiere=student.get("Quelles étaient tes matières préférées au lycée ?");
-    var bacWeight=Number(document.getElementById("H6bacS").value); 
-    var prepaWeight=Number(document.getElementById("H6prepa").value); 
+    var bacWeight=Number(document.getElementById("H6bacS").value);
+    var prepaWeight=Number(document.getElementById("H6prepa").value);
     var mathphyWeight=Number(document.getElementById("H6matiere").value);
-    
+
     if(student.get("Quel bac possèdes-tu ?").match("S"))
         score+= bacWeight;
     if(student.get("Quelle est ta formation précédant l'ENSIM ?").match("CPGE MP/PT/PC/ SI"))
@@ -119,16 +119,16 @@ function hypothesis6(student){
 }
 /**
  * Calcul score global
- * 
+ *
  * @param {Map} student
  * @returns Le score de l'étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function hypothesisGlobal(student){
     var score =0 
-    var h1Weight=Number(document.getElementById("H1").value); 
-    var h2Weight=Number(document.getElementById("H2").value); 
+    var h1Weight=Number(document.getElementById("H1").value);
+    var h2Weight=Number(document.getElementById("H2").value);
     var h3Weight=Number(document.getElementById("H3").value);
-    var h4Weight=Number(document.getElementById("H4").value); 
+    var h4Weight=Number(document.getElementById("H4").value);
     var h5Weight=Number(document.getElementById("H5").value);
     var h6Weight=Number(document.getElementById("H6").value);
     score= hypothesis1(student)*h1Weight-hypothesis2(student)*h2Weight+hypothesis3(student)*h3Weight+hypothesis4(student)*h4Weight+hypothesis5(student)*h5Weight+hypothesis6(student)*h6Weight;
@@ -137,8 +137,8 @@ function hypothesisGlobal(student){
 }
 /**
  * Transcription des données d'un étudiant
- * 
- * @param {Map} student 
+ *
+ * @param {Map} student
  * @param {Map} label
  * @returns {Map}
  */
@@ -153,11 +153,12 @@ function transcript(student,label){
 
 /**
  * Analyse des résultats du questionnaires
- * 
+ *
  * @param {Map} students Un dictionnaire contenant les résultats aux questionnaires
  * @returns {Map} Le score obtenu pour chaque étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function analysis(students){
+
     var label =students.get("0");
     students.delete("0");
     var result = new Map ();
