@@ -1,3 +1,4 @@
+var analysisResult= new Map();
 /**
  * Test de la première hypothèse : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre
  *
@@ -155,16 +156,15 @@ function transcript(student,label){
  * Analyse des résultats du questionnaires
  *
  * @param {Map} students Un dictionnaire contenant les résultats aux questionnaires
- * @returns {Map} Le score obtenu pour chaque étudiant entre -5 (profil astre) et 5 profil IPS
  */
 function analysis(students){
-
+    //console.log(students);
     var label =students.get("0");
     students.delete("0");
-    var result = new Map ();
+    //console.log(students);
+    //console.log(label);
     students.forEach((student,key)=>
-        result.set(transcript(student,label).get("Quel est ton numéro étudiant ?"),hypothesisGlobal(transcript(student,label)))
+     analysisResult.set(transcript(student,label).get("Quel est ton numéro étudiant ?"),hypothesisGlobal(transcript(student,label)))
     )
-    console.log(result);
-    return result;
+    console.log(analysisResult);
 }

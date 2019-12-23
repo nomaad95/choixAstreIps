@@ -1,4 +1,7 @@
+
 <input type="file" accept=".xlsx" id="dropZone" style="background-color: lightblue; width: 150ch; height: 80vh;"></div>
+<script src="js/excelOpener.js"></script>
+<script type="text/javascript" src="js/scoreCalc.js"></script>
 <button onclick="transcript(student,label)">Transcription</button>
 <form>
         <h1>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre</h1>
@@ -55,10 +58,11 @@
                 <input id="H6matiere"type="number" step="1" value="2" min="-5" max="5">
 <br>
         <button onclick="analysis(studentList2)">Calcul</button>
+
 </form>
-<script type="text/javascript" src="js/scoreCalc.js"></script>
+
 <script src="js/libs/xlsx.full.min.js"></script>
-<script src="js/excelOpener.js"></script>
+
 <script >
         var student = new Map();
         student.set("Quel OS préfères-tu ?","Linux");
@@ -110,9 +114,6 @@
         label.set("H","Quelles étaient tes matières préférées au lycée ?");
         label.set("O","Donne trois logiciels à installer sur ton PC ?");
         label.set("W","Quels sites fréquentes-tu régulièrement ?");
-
-        //var studentList= excelSheet;
-
         var studentList2 = new Map();
         studentList2.set("0",label).set("1",student2).set("2",student3);
         </script>
