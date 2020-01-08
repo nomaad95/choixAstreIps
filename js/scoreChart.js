@@ -4,7 +4,7 @@ var datasetId = [];
 var datasetScore = [];
 for(var key in map){
 	datasetId.push(key);
-	dataSetScore.push(map[key]);
+	datasetScore.push(map[key]);
 }
 
 var ctx = document.getElementById('myChart').getContext('2d');
