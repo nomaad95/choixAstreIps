@@ -6,11 +6,17 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 	<!--	<link type="text/css" rel="stylesheet" href="css/style.css"/> -->
-	<style media="screen">
-		.form-group .form-control{
-			width: 50%;
-		}
-	</style>
+		<style media="screen">
+			.form-group .form-control{
+				width: 50%;
+			}
+			.form-control-range{
+			  width: auto !important;
+			}
+			.btn-link{
+				color:inherit;
+			}
+		</style>
 
 	</head>
 
@@ -20,6 +26,16 @@
 		<nav class="navbar navbar-light bg-light">
 		  <span class="navbar-brand mb-0 h1">Choix IPS-ASTRE</span> année 2019-2020
 		</nav>
+		<br>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroupFileAddon01">Pour commencer, ajouter les données :</span>
+			</div>
+			<div class="custom-file">
+				<input type="file" accept=".xlsx" id="dropZone" class="custom-file-input" aria-describedby="inputGroupFileAddon01">
+				<label class="custom-file-label" for="inputGroupFile01">Ajouter un fichier Excel</label>
+			</div>
+		</div>
 
 		<div class="container-fluid">
 			<div>
@@ -30,225 +46,198 @@
 			<div>
 				<h5 class="text-center">FORMULAIRE</h5>
 				<form>
-				<ul class="list-group">
-					<li class="list-group-item">
-						<span>Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil ASTRE</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H1">
-							<div class="form-row">
-							  <div class="form-group mx-sm-2 mb-2">
-							    Linux :
-									<input class="form-control form-control-sm ml-3" id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
-							  </div>
-								<div class="form-group mx-sm-2 mb-2">
-									Arduino :
-									<input class="form-control form-control-sm ml-3" id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Ensim'Elec :
-									<input class="form-control form-control-sm ml-3" id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
+					<div class="accordion" id="formulaireHypotheses">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil ASTRE
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp1" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H1">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											Linux :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H1Linux" type="number" step="1" value="-1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Arduino :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H1Arduino" type="number" step="1" value="-1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Ensim'Elec :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H1Elec" type="number" step="1" value="-2" min="-5" max="5">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp1">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp1" step="1" value="0" min="0" max="5">
-						</div>
-					</li>
-					<li class="list-group-item">
-						<span>Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H2">
-							<div class="form-row">
-								<div class="form-group mx-sm-2 mb-2">
-									Arduino :
-									<input class="form-control form-control-sm ml-3" id="H2Weight" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									C :
-									<input class="form-control form-control-sm ml-3" id="H2WeightC" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Prépa :
-									<input class="form-control form-control-sm ml-3" id="H2WeightP" type="number" step="1" value="1" min="-5" max="5">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+										Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp2" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H2">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											Arduino :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H2Weight" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											C :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H2WeightC" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Prépa :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H2WeightP" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp2">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp2" step="1" value="0" min="0" max="5">
-						</div>
-					</li>
-					<li class="list-group-item">
-						<span>Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H3">
-							<div class="form-row">
-								<div class="form-group mx-sm-2 mb-2">
-									BL :
-									<input class="form-control form-control-sm ml-3" id="H3BL" type="number" step="1" value="2" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Matières littéraires :
-									<input class="form-control form-control-sm ml-3" id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Activité artistique :
-									<input class="form-control form-control-sm ml-3" id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Math & Physique :
-									<input class="form-control form-control-sm ml-3" id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+										Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp3" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H3">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											BL :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H3BL" type="number" step="1" value="2" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Matières littéraires :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H3Litteraire" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Activité artistique :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H3Activite"type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Math & Physique :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H3MathPhy"type="number" step="1" value="-1" min="-5" max="5">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp3">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp3" step="1" value="0" min="0" max="5">
-						</div>
-					</li>
-					<li class="list-group-item">
-						<span>Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H4">
-							<div class="form-row">
-								<div class="form-group mx-sm-2 mb-2">
-									MacOS :
-									<input class="form-control form-control-sm ml-3" id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Logiciel créatif :
-									<input class="form-control form-control-sm ml-3" id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Application créative :
-									<input class="form-control form-control-sm ml-3" id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
-								</div>
-							</div>
-						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp4">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp4" step="1" value="0" min="0" max="5">
-						</div>
-					</li>
-					<li class="list-group-item">
-						<span>Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H5">
-							<div class="form-row">
-								<div class="form-group mx-sm-2 mb-2">
-									Langage Web :
-									<input class="form-control form-control-sm ml-3" id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Raspberry Pi ou Aucun :
-									<input class="form-control form-control-sm ml-3" id="H5Arduino" type="number" step="1" value="2" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Application créative :
-									<input class="form-control form-control-sm ml-3" id="H5SiteWeb" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-							</div>
-						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp5">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp5" step="1" value="0" min="0" max="5">
-						</div>
-					</li>
 
-					<li class="list-group-item">
-						<span>Hypothèse 6 : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE.</span>
-						<div class="form-inline flex-nowrap justify-content-between" id="H6">
-							<div class="form-row">
-								<div class="form-group mx-sm-2 mb-2">
-									Bac S :
-									<input class="form-control form-control-sm ml-3" id="H6bacS" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Prépa scientifique :
-									<input class="form-control form-control-sm ml-3" id="H6prepa" type="number" step="1" value="1" min="-5" max="5">
-								</div>
-								<div class="form-group mx-sm-2 mb-2">
-									Matières scientifiques :
-									<input class="form-control form-control-sm ml-3" id="H6matiere" type="number" step="1" value="1" min="-5" max="5">
+
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+										Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp4" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseFour" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H4">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											MacOS :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H4MacOS" type="number" step="1" value="2" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Logiciel créatif :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H4Logiciel"type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Application créative :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H4SiteWeb"type="number" step="1" value="1" min="-5" max="5">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mx-sm-2 mb-2">
-							<label for="Hyp6">Poids de l'hypothèse :</label>
-							<input type="range" class="form-control-range" id="Hyp6" step="1" value="0" min="0" max="5">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+										Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp5" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseFive" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H5">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											Langage Web :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H5Langage" type="number" step="1" value="3" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Raspberry Pi ou Aucun :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H5Arduino" type="number" step="1" value="2" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Application créative :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H5SiteWeb" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</li>
-				</ul>
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0 d-flex">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+										Hypothèse 6 : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE
+									</button>
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp6" step="1" value="0" min="0" max="5">
+								</h2>
+							</div>
+							<div id="collapseSix" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
+								<div class="form-inline flex-nowrap justify-content-between card-body" id="H6">
+									<div class="form-row">
+										<div class="form-group mx-sm-2 mb-2">
+											Bac S :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H6bacS" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Prépa scientifique :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H6prepa" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+										<div class="form-group mx-sm-2 mb-2">
+											Matières scientifiques :
+											<input class="form-control form-control-sm ml-3" onchange="analysis()" id="H6matiere" type="number" step="1" value="1" min="-5" max="5">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-				<div class="text-center mx-2 my-2">
-					<button class="btn btn-info" type="reset" name="reinitialiser">Réinitialiser</button>
-					<button class="btn btn-success" type="button" name="appliquer" onclick="analysis(studentList2)">Appliquer</button>
-					<br><br>
-					<li class="list-group-item">
-						<input type="file" accept=".xlsx" id="dropZone" style="background-color: lightblue; width: 100%; height: 10vh;"></div>
-					</li>
-				</div>
-			</form>
+					<div class="text-center mx-2 my-2">
+						<button class="btn btn-info" type="reset" name="reinitialiser">Réinitialiser</button>
+						<button class="btn btn-success" type="button" name="appliquer" onclick="analysis()">Appliquer</button>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
 
 		<script src="js/libs/xlsx.full.min.js"></script>
 		<script src="js/excelOpener.js"></script>
+ 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
-		<!--<script type="text/javascript" src="js/scoreCalc.js"></script>-->
-		<script >
-			var student = new Map();
-			student.set("Quel OS préfères-tu ?","Linux");
-			student.set("Quel bac possèdes-tu ?","S");
-			student.set("Raspberry Pi ou Arduino ?","Arduino");
-			student.set("Quelles associations t'intéressent ?","ENSIM'elec");
-			student.set("Quel est le premier langage de programmation que tu as appris en dehors des cours ?","C");
-			student.set("Quelle est ta formation précédant l'ENSIM ?","Prépa Intégrée");
-			student.set("Quelles sont tes activités préférées ?","Jeux Vidéos;Coder;Écouter de la musique;");
-			student.set("Quelles étaient tes matières préférées au lycée ?","Anglais;EPS;Sciences de l'Ingénieur;Informatique et Sciences du Numérique (ISN);");
-			student.set("Donne trois logiciels à installer sur ton PC ?","libreoffice, gimp et discord");
-			student.set("Quels sites fréquentes-tu régulièrement ?","Youtube;Pinterest");
-
-			var student2 = new Map();
-			student2.set("N","Linux");
-			student2.set("F","i173199");
-			student2.set("G","S");
-			student2.set("P","Arduino");
-			student2.set("S","ENSIM'elec");
-			student2.set("Q","Java");
-			student2.set("I","IUT");
-			student2.set("V","Jeux Vidéos;Coder;Écouter de la musique;");
-			student2.set("H","Maths");
-			student2.set("O","Chrome, Discord, Spotify");
-			student2.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
-
-			var student3 = new Map();
-			student3.set("N","Linux");
-			student3.set("F","e199632");
-			student3.set("G","S");
-			student3.set("P","Arduino");
-			student3.set("S","ENSIM'elec");
-			student3.set("Q","Java");
-			student3.set("I","CPGE BL");
-			student3.set("V","Jeux Vidéos;Coder;Écouter de la musique;");
-			student3.set("H","Maths");
-			student3.set("O","Chrome, Discord, Spotify");
-			student3.set("W","Twitter;Instagram;Netflix;Amazon;Youtube;Github;Twitch;");
-
-			var label = new Map();
-			label.set("N","Quel OS préfères-tu ?");
-			label.set("F","Quel est ton numéro étudiant ?");
-			label.set("G","Quel bac possèdes-tu ?");
-			label.set("P","Raspberry Pi ou Arduino ?");
-			label.set("S","Quelles associations t'intéressent ?");
-			label.set("Q","Quel est le premier langage de programmation que tu as appris en dehors des cours ?");
-			label.set("I","Quelle est ta formation précédant l'ENSIM ?");
-			label.set("V","Quelles sont tes activités préférées ?");
-			label.set("H","Quelles étaient tes matières préférées au lycée ?");
-			label.set("O","Donne trois logiciels à installer sur ton PC ?");
-			label.set("W","Quels sites fréquentes-tu régulièrement ?");
-
-			//var studentList= excelSheet;
-
-			var studentList2 = new Map();
-			studentList2.set("0",label).set("1",student2).set("2",student3);
+ 		<script>
+			$('.collapse').collapse()
 		</script>
-
+		<!--<script type="text/javascript" src="js/scoreCalc.js"></script>-->
 	</body>
 </html>
