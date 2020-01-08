@@ -1,9 +1,11 @@
 var excelSheet = new Map();
 
 function handleDrop(e) {
-    console.log("Opening file...");
+    console.log("Opening file... ",e);
     e.stopPropagation(); e.preventDefault();
-    var files = e.dataTransfer.files, f = files[0];
+    if (e.type == "change") 
+    var files = e.target.files, f = files[0];
+    else var files = e.dataTransfer.files, f = files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
         var data = new Uint8Array(e.target.result);
