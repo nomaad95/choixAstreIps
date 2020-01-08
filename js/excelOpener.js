@@ -163,7 +163,7 @@ function hypothesis6(student){
  * @returns Le score de l'étudiant entre -5 (profil ASTRE) et 5 profil IPS
  */
 function hypothesisGlobal(student){
-    var score =0 
+    var score =0
     var h1Weight=document.getElementById("Hyp1").value;
     var h2Weight=document.getElementById("Hyp2").value;
     var h3Weight=document.getElementById("Hyp3").value;
@@ -206,5 +206,41 @@ function analysis(){
     students.forEach((student,key)=>
      analysisResult.set(transcript(student,label).get("Quel est ton numéro étudiant ?"),hypothesisGlobal(transcript(student,label)))
     )
-    console.log(analysisResult);
+    var map = analysisResult;
+    var labelMap;
+    var datasetId = [];
+    var datasetScore = [];
+    console.log(map)
+    for (var [key, val] of map) {
+        datasetId.push(key);
+        datasetScore.push(val);
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+    // The data for our dataset
+    data: {
+    labels: datasetId,
+    datasets: [{
+        label: 'Résultats',
+        backgroundColor: 'rgba(0, 38, 163,0.5)',
+        borderColor: 'rgb(0,38,163)',
+        data: datasetScore
+        }]
+    },
+    // Configuration options go here
+    options: {
+        scales: {
+            yAxes: [{
+                ticks : {
+                beginAtZero: true
+                }
+                }]
+            }
+        }
+    });
+
+    //console.log(analysisResult);
 }
