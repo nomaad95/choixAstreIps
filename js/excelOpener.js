@@ -26,6 +26,10 @@ function handleDrop(e) {
             }
             excelSheet.set(l,line);
         }
+        console.log(excelSheet);
+
+        // Mettre code utilisant Excel ici
+
     };
     reader.readAsArrayBuffer(f);
   }
@@ -33,8 +37,6 @@ function handleDrop(e) {
   document.getElementById('dropZone').addEventListener('change', handleDrop, false);
 
 var analysisResult= new Map();
-var label = new Map();
-var firstTime = true;
 /**
  * Test de la première hypothèse : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre
  *
@@ -195,13 +197,10 @@ function transcript(student,label){
  * @param {Map} students Un dictionnaire contenant les résultats aux questionnaires
  */
 function analysis(){
+    //console.log(students);
     students = excelSheet;
-    console.log(students);
-    if (firstTime) {
-        label = students.get(1);
-        students.delete(1);
-        firstTime = false;
-    }
+    var label = students.get(1);
+    students.delete(1);
     //console.log(students);
     console.log(label);
     students.forEach((student,key)=>
@@ -226,8 +225,8 @@ function analysis(){
     labels: datasetId,
     datasets: [{
         label: 'Résultats',
-        backgroundColor: 'blue',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(0, 38, 163,0.5)',
+        borderColor: 'rgb(0,38,163)',
         data: datasetScore
         }]
     },
