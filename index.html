@@ -179,15 +179,19 @@
 				<div class="text-center mx-2 my-2">
 					<button class="btn btn-info" type="reset" name="reinitialiser">Réinitialiser</button>
 					<button class="btn btn-success" type="button" name="appliquer" onclick="analysis(studentList2)">Appliquer</button>
-<br><br>
-					<a href="excelOpener.html" class="btn btn-secondary" type="button" name="nouveaufichier">Nouveau Fichier Excel</a>
+					<br><br>
+					<li class="list-group-item">
+						<input type="file" accept=".xlsx" id="dropZone" style="background-color: lightblue; width: 100%; height: 10vh;"></div>
+					</li>
 				</div>
 			</form>
 		</div>
 	</div>
 
+		<script src="js/libs/xlsx.full.min.js"></script>
+		<script src="js/excelOpener.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
-		<script type="text/javascript" src="js/scoreCalc.js"></script>
+		<!--<script type="text/javascript" src="js/scoreCalc.js"></script>-->
 		<script >
 			var student = new Map();
 			student.set("Quel OS préfères-tu ?","Linux");
