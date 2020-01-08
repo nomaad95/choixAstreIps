@@ -160,18 +160,19 @@ function hypothesis6(student){
  * Calcul score global
  *
  * @param {Map} student
- * @returns Le score de l'étudiant entre -5 (profil astre) et 5 profil IPS
+ * @returns Le score de l'étudiant entre -5 (profil ASTRE) et 5 profil IPS
  */
 function hypothesisGlobal(student){
     var score =0 
-    var h1Weight=Number(document.getElementById("H1").value);
-    var h2Weight=Number(document.getElementById("H2").value);
-    var h3Weight=Number(document.getElementById("H3").value);
-    var h4Weight=Number(document.getElementById("H4").value);
-    var h5Weight=Number(document.getElementById("H5").value);
-    var h6Weight=Number(document.getElementById("H6").value);
+    var h1Weight=document.getElementById("Hyp1").value;
+    var h2Weight=document.getElementById("Hyp2").value;
+    var h3Weight=document.getElementById("Hyp3").value;
+    var h4Weight=document.getElementById("Hyp4").value;
+    var h5Weight=document.getElementById("Hyp5").value;
+    var h6Weight=document.getElementById("Hyp6").value;
+    //console.log("Hyp 6 score : " +h6Weight);
     score= hypothesis1(student)*h1Weight-hypothesis2(student)*h2Weight+hypothesis3(student)*h3Weight+hypothesis4(student)*h4Weight+hypothesis5(student)*h5Weight+hypothesis6(student)*h6Weight;
-    //alert(score);
+    //console.log(score);
     return score;
 }
 /**
