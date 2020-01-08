@@ -28,6 +28,7 @@ function handleDrop(e) {
             }
             excelSheet.set(l,line);
         }
+        document.getElementById("formul").style.display = "block";
         console.log(excelSheet);
 
         // Mettre code utilisant Excel ici
