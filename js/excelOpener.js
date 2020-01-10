@@ -31,6 +31,7 @@ function handleDrop(e) {
         document.getElementById("formul").style.display = "block";
         console.log(excelSheet);
 
+        analysis();
         // Mettre code utilisant Excel ici
 
     };
@@ -40,6 +41,9 @@ function handleDrop(e) {
   document.getElementById('dropZone').addEventListener('change', handleDrop, false);
 
 var analysisResult= new Map();
+var firstTime = true;
+var label = new Map();
+var chart;
 /**
  * Test de la première hypothèse : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil astre
  *
@@ -195,6 +199,19 @@ function transcript(student,label){
 }
 
 /**
+ * 
+ * Export des résultats
+ * 
+ * Enregistre le graphe en PNG
+ * 
+ */
+
+ function savefile(){
+    var png = chart.toBase64Image();
+    download(png, "ExportResults.png", "image/png");
+ }
+
+/**
  * Analyse des résultats du questionnaires
  *
  * @param {Map} students Un dictionnaire contenant les résultats aux questionnaires
@@ -202,8 +219,11 @@ function transcript(student,label){
 function analysis(){
     //console.log(students);
     students = excelSheet;
-    var label = students.get(1);
-    students.delete(1);
+    if (firstTime){
+        label = students.get(1);
+        students.delete(1);
+        firstTime = false;
+    }
     //console.log(students);
     console.log(label);
     students.forEach((student,key)=>
@@ -220,7 +240,7 @@ function analysis(){
     }
 
     var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
+    chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',
     // The data for our dataset

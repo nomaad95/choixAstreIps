@@ -50,6 +50,13 @@
 			</div>
 
 			<div>
+				<div class="text-center mx-2 my-2">
+					<button class="btn btn-success" type="button" name="savefile" onclick="savefile()">Exporter les Résultats</button>
+				</div>
+				<!--<script src="js/scoreChart.js"></script>-->
+			</div>
+
+			<div>
 				<h5 class="text-center">FORMULAIRE</h5>
 				<form>
 					<div class="accordion" id="formulaireHypotheses">
@@ -59,7 +66,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 										Hypothèse 1 : Un étudiant utilisant Linux et Arduino et s'intéressant à Ensim'Elec a un profil ASTRE
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp1" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp1" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -87,7 +94,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 										Hypothèse 2 : Un étudiant ayant déjà fait du C et de l'Arduino mais venant de prépa n'a pas un profil ASTRE
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp2" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp2" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -115,7 +122,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
 										Hypothèse 3 : Un étudiant venant de BL aimant les matières littéraires pratiquant une activité artistique et n'aimant pas les maths et la physique a un profil IPS
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp3" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp3" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -149,7 +156,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
 										Hypothèse 4 : Un étudiant sous macOS ayant utilisé un logiciel de graphisme ou une application liée au graphisme à un profil IPS
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp4" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp4" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseFour" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -177,7 +184,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
 										Hypothèse 5 : Un étudiant utilisant un langage Web et n'utilisant pas d'Arduino à un profil IPS
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp5" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp5" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseFive" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -205,7 +212,7 @@
 									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
 										Hypothèse 6 : Un étudiant avec un bac S venant de prépa CPGE MP/PT/PC/ SI aimant les math ou la physique a un profil ASTRE
 									</button>
-									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp6" step="1" value="0" min="0" max="5">
+									<input type="range" class="form-control-range" onchange="analysis()" id="Hyp6" step="1" value="2" min="0" max="5">
 								</h2>
 							</div>
 							<div id="collapseSix" class="collapse show" aria-labelledby="headingOne" data-parent="#formulaireHypotheses">
@@ -238,6 +245,7 @@
 		</div>
 
 		<script src="js/libs/xlsx.full.min.js"></script>
+		<script src="js/libs/download.js"></script>
 		<script src="js/excelOpener.js"></script>
  		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
